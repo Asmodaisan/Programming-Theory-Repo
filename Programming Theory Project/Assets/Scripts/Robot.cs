@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class Robot : MonoBehaviour
 {
-    public float jumpForce { get; protected set; } 
+    public float jumpForce { get; protected set; } // ENCAPSULATION
     protected GameObject robot;
     protected Rigidbody robotRb;
     public TextMeshProUGUI cloudText;
@@ -21,17 +21,17 @@ public class Robot : MonoBehaviour
         cloud.gameObject.SetActive(false);
     }
 
-    public virtual void Jump()
+    public virtual void Jump() // ABSTRACTION
     {
         robotRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
-    public virtual void Delete()
+    public virtual void Delete() // ABSTRACTION
     {
         robot.SetActive(false);
     }
     
-    private IEnumerator Delay()
+    private IEnumerator Delay() // ABSTRACTION
     {
        yield return new WaitForSeconds(1.0f);
        cloud.gameObject.SetActive(false);

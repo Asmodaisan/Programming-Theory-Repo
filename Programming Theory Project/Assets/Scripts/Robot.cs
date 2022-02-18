@@ -31,9 +31,10 @@ public class Robot : MonoBehaviour
         robot.SetActive(false);
     }
     
-    private IEnumerator Timer()
+    private IEnumerator Delay()
     {
-       yield return new WaitForSeconds(2.0f);
+       yield return new WaitForSeconds(1.0f);
+       cloud.gameObject.SetActive(false);
     }
 
     public virtual void GreetingText()
@@ -45,7 +46,7 @@ public class Robot : MonoBehaviour
     {
         GreetingText();
         cloud.gameObject.SetActive(true);
-        StartCoroutine(Timer());
+        StartCoroutine(Delay());
         //cloud.gameObject.SetActive(false);
     }
 
